@@ -6,6 +6,7 @@ parser.add_argument("-u", "--url", help="URL to scan", required=True)
 parser.add_argument("-p", "--payloads", help="Payloads list", required=True)
 args = parser.parse_args()
 
+init(autoreset=True)
 def fuzz(url, payloads):
     for playload in open(payloads, "r").readlines():
         new_url = url.replace('{fuzz}', playload)
